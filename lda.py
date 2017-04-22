@@ -33,7 +33,7 @@ def preprocessing(data):
                 if letter not in string.punctuation:
                     cleaned_word += letter
             word = cleaned_word
-            if len(word) > 1 and not re.search('[0-9]', word) and word not in stopwords:
+            if len(word) > 1 and not re.search('[0-9],', word) and word not in stopwords:
                 if word not in word2id:
                     word2id[word] = currentWordId
                     id2word[currentWordId] = word
@@ -136,21 +136,9 @@ def getTopicWords(docs, word2id, id2word):
     maxTopicWordsNum = 10
     for z in range(0, K):
         ids = varphi[z, :].argsort()
-        # topicword = []
         for j in ids:
-            # topicword.insert(0, id2word[j])
             topicwords[id2word[j]] = 1 
-            # print(id2word[j])
-
-    # for word in [topicword[0 : min(10, len(topicword))]]:
-    #     topicwords[word] = 1
-        # topicwords += topicword[0 : min(10, len(topicword))]
-    # print(topicwords)
     return topicwords
-
-
-
-
 
 
 file = codecs.open('stopwords.dic','r','utf-8')
