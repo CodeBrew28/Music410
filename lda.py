@@ -158,18 +158,12 @@ stopwords = [line.strip() for line in file]
 file.close()
 with open('data/2015.json') as data_file:  
     data_set = json.load(data_file)
-    # data = [data[0]]
-    # print(data[0]['title'])
 
 
 songs = {}
 for i in range(0, len(data_set)):
-# for i in range(0, 1):
-    # print(i)
-
     data = [data_set[i]]
     docs, word2id, id2word = preprocessing(data) 
-
     N = len(docs) # number of documents for training
     M = len(word2id) # number of distinct terms
     K = 10 # number of topic
@@ -192,7 +186,7 @@ import spacy
 
 nlp = spacy.load('en')
 w1 = nlp(unicode("red"))
-w2 = nlp(unicode("apple"))
+w2 = nlp(unicode("ocean"))
 similarity_rating = w1.similarity(w2)
 print(similarity_rating)
 
