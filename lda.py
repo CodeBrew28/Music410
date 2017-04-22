@@ -1,12 +1,6 @@
 import numpy as np
-import codecs
-import jieba
-import re
-import random
-import math
 from scipy.special import psi
-import json
-import string
+import json, string, math, random, re, codecs, jieba
 
 # Shamelessly copied from  https://github.com/laserwave/LDA-Variational-EM/blob/master/main.py
 
@@ -131,7 +125,7 @@ def getTopicWords(docs, word2id, id2word):
         # M-Step
         updateVarphi()
 
-    # calculate the top 10 terms of each topic
+    # calculate up to 10 terms of each topic
     topicwords = {}
     maxTopicWordsNum = 10
     for z in range(0, K):
