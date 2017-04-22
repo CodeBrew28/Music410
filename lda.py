@@ -172,17 +172,34 @@ print(songs)
 
 import spacy
 
-nlp = spacy.load('en')
-w1 = nlp(unicode("red"))
-w2 = nlp(unicode("ocean"))
-similarity_rating = w1.similarity(w2)
-print(similarity_rating)
+color_assciation = {}
 
+nlp = spacy.load('en')
+w2 = nlp(unicode("ocean"))
+
+w1 = nlp(unicode("red"))
+similarity_rating = w1.similarity(w2)
+color_assciation["red"] = similarity_rating
+
+w1 = nlp(unicode("orange"))
+similarity_rating = w1.similarity(w2)
+color_assciation["orange"] = similarity_rating
+
+w1 = nlp(unicode("yellow"))
+similarity_rating = w1.similarity(w2)
+color_assciation["yellow"] = similarity_rating
 
 w1 = nlp(unicode("green"))
 similarity_rating = w1.similarity(w2)
-print(similarity_rating)
+color_assciation["green"] = similarity_rating
 
 w1 = nlp(unicode("blue"))
 similarity_rating = w1.similarity(w2)
-print(similarity_rating)
+color_assciation["blue"] = similarity_rating
+
+w1 = nlp(unicode("purple"))
+similarity_rating = w1.similarity(w2)
+color_assciation["purple"] = similarity_rating
+
+
+print(color_assciation)
